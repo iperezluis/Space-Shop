@@ -1,0 +1,11 @@
+services:
+  spacedb:
+    image: mongo:5.0.0
+    container_name: spaceshop-database
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo:/data/db
+# note:
+# -27017:27017 means that i wants to comunicate the port 27017 of my computer with container port 27017
+#  ./mongo:/data/db is where we going to storage the information and this create a binding between the container and this folder
