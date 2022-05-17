@@ -11,6 +11,12 @@ export const getProductBySlug = async (
   if (!product) {
     return null;
   }
+  //Este ajuste es para que cargue bien las del server y las de cloudinary
+  product.images = product.images.map((image) => {
+    return image.includes("http")
+      ? image
+      : `${process.env.HOST_NAME}/products/${image}`;
+  });
   return JSON.parse(JSON.stringify(product));
 };
 
@@ -38,7 +44,15 @@ export const getProductsByQuery = async (
     .select("title images slug inStock price -_id")
     .lean();
   await db.disconnect();
-
+  //Este ajuste es para que cargue bien las del server y las de cloudinary
+  products.forEach(
+    (product) =>
+      (product.images = product.images.map((image) => {
+        return image.includes("http")
+          ? image
+          : `${process.env.HOST_NAME}/products/${image}`;
+      }))
+  );
   return products;
 };
 
@@ -48,6 +62,14 @@ export const getAllProducts = async (): Promise<IProduct[]> => {
     .select("title inStock slug images price -_id")
     .lean();
   await db.disconnect();
-
+  //Este ajuste es para que cargue bien las del server y las de cloudinary
+  products.forEach(
+    (product) =>
+      (product.images = product.images.map((image) => {
+        return image.includes("http")
+          ? image
+          : `${process.env.HOST_NAME}/products/${image}`;
+      }))
+  );
   return products;
 };

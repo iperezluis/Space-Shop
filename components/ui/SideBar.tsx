@@ -10,6 +10,7 @@ import {
   LoginOutlined,
   CategoryOutlined,
   AdminPanelSettings,
+  DashboardOutlined,
 } from "@mui/icons-material";
 import {
   Box,
@@ -131,8 +132,6 @@ export const SideBar = () => {
             </>
           ) : isLoggedIn && user?.role === "admin" ? (
             <>
-              {/* <Divider /> */}
-              <ListSubheader>Admin Panel</ListSubheader>
               <ListItem button>
                 <ListItemIcon>
                   <AccountCircleOutlined />
@@ -141,6 +140,62 @@ export const SideBar = () => {
               </ListItem>
 
               <ListItem button>
+                <ListItemIcon>
+                  <ConfirmationNumberOutlined />
+                </ListItemIcon>
+                <ListItemText primary={"Mis Ordenes"} />
+              </ListItem>
+
+              <ListItem
+                button
+                sx={{ display: { xs: "", sm: "none" } }}
+                onClick={() => navigateTo("/category/men")}
+              >
+                <ListItemIcon>
+                  <MaleOutlined />
+                </ListItemIcon>
+                <ListItemText primary={"Hombres"} />
+              </ListItem>
+
+              <ListItem
+                button
+                sx={{ display: { xs: "", sm: "none" } }}
+                onClick={() => navigateTo("/category/women")}
+              >
+                <ListItemIcon>
+                  <FemaleOutlined />
+                </ListItemIcon>
+                <ListItemText primary={"Mujeres"} />
+              </ListItem>
+
+              <ListItem
+                button
+                sx={{ display: { xs: "", sm: "none" } }}
+                onClick={() => navigateTo("/category/kid")}
+              >
+                <ListItemIcon>
+                  <EscalatorWarningOutlined />
+                </ListItemIcon>
+                <ListItemText primary={"Niños"} />
+              </ListItem>
+
+              <ListItem button onClick={logoutUser}>
+                <ListItemIcon>
+                  <LoginOutlined />
+                </ListItemIcon>
+                <ListItemText primary={"Salir"} />
+              </ListItem>
+
+              <Divider />
+              <ListSubheader>Admin Panel</ListSubheader>
+
+              <ListItem button onClick={() => navigateTo("/admin/")}>
+                <ListItemIcon>
+                  <DashboardOutlined />
+                </ListItemIcon>
+                <ListItemText primary={"Dashboard"} />
+              </ListItem>
+              <ListItem button onClick={() => navigateTo("/admin/products")}>
                 <ListItemIcon>
                   <CategoryOutlined />
                 </ListItemIcon>
@@ -153,18 +208,11 @@ export const SideBar = () => {
                 <ListItemText primary={"Ordenes"} />
               </ListItem>
 
-              <ListItem button>
+              <ListItem button onClick={() => navigateTo("/admin/users")}>
                 <ListItemIcon>
                   <AdminPanelSettings />
                 </ListItemIcon>
                 <ListItemText primary={"Usuarios"} />
-              </ListItem>
-
-              <ListItem button onClick={logoutUser}>
-                <ListItemIcon>
-                  <LoginOutlined />
-                </ListItemIcon>
-                <ListItemText primary={"Salir"} />
               </ListItem>
             </>
           ) : (

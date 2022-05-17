@@ -5,7 +5,7 @@ import { currency } from "../../utils";
 import { IOrder } from "../../interfaces";
 
 interface Props {
-  order: IOrder;
+  order?: IOrder;
 }
 export const OrderSummary: FC<Props> = ({ order }) => {
   const { orderSummary } = useContext(CartContext);

@@ -9,7 +9,7 @@ const userSchema = new Schema(
     role: {
       type: String,
       enum: {
-        values: ["admin", "client"],
+        values: ["admin", "client", "super-user", "SEO"],
         default: "client",
         required: true,
       },
@@ -20,6 +20,6 @@ const userSchema = new Schema(
   }
 );
 
-const  User: Model<IUser> = mongoose.models.User || model("User", userSchema);
+const User: Model<IUser> = mongoose.models.User || model("User", userSchema);
 
 export default User;

@@ -35,7 +35,15 @@ const getProducts = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
       .select("title images price slug inStock -_id")
       .lean();
     await db.disconnect();
-
+    //Este ajuste es para que cargue bien las del server y las de cloudinary
+    products.forEach(
+      (product) =>
+        (product.images = product.images.map((image) => {
+          return image.includes("http")
+            ? image
+            : `${process.env.HOST_NAME}/products/${image}`;
+        }))
+    );
     res.status(200).json(products);
   } catch (error) {
     console.log(error);

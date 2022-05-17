@@ -63,14 +63,6 @@ const getPayPalBearerToken = async (): Promise<string | null> => {
   }
 };
 const payOrder = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  //to verify if is a mongo id valid
-  const { id = "" } = req.query;
-  console.log({ id });
-  if (!isValidObjectId(id)) {
-    return res.status(400).json({
-      message: "No es un id mongo valido",
-    });
-  }
   //to verify if user is athenticated
   const session: any = await getSession({ req });
   console.log({ session });
@@ -87,6 +79,14 @@ const payOrder = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     });
   }
   const { transactionId = "", orderId = "" } = req.body;
+
+  //to verify if is a mongo id valid
+  console.log({ orderId });
+  if (!isValidObjectId(orderId)) {
+    return res.status(400).json({
+      message: "No es un id mongo valido",
+    });
+  }
 
   const { data } = await axios.get<IPayPal.OrderDetails>(
     `${process.env.PAYPAL_ORDERS_URL}/${transactionId}`,
@@ -112,13 +112,6 @@ const payOrder = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
       message: "Orden no existe",
     });
   }
-  // to verify if order belong to user authenticated
-  // if (order.user !== session.user._id) {
-  //   return res.status(400).json({
-  //     message: "Esta orden no pertenece a este usuario",
-  //   });
-  // }
-
   //to verify that amount does matching
   if (order.total !== Number(data.purchase_units[0].amount.value)) {
     return res.status(401).json({
@@ -130,7 +123,7 @@ const payOrder = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   order.isPaid = true;
   await order.save();
   await db.disconnect();
-  //TODO send email to user and give it access to product or send product
+  //TO DO send email to user and give it access to product or send product
 
   res.status(200).json({
     message: "orden pagada",

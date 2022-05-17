@@ -23,9 +23,7 @@ export const ProductCard: FC<Props> = ({ product, inOffert }) => {
   const [isLoadedImage, setIsLoadedImage] = useState<boolean>(false);
   //effect of hoover when we touch the image with mouse
   const productImage = useMemo(() => {
-    return isHovered
-      ? `/products/${product.images[1]}`
-      : `/products/${product.images[0]}`;
+    return isHovered ? product.images[1] : product.images[0];
   }, [isHovered, product.images]);
   return (
     <Grid

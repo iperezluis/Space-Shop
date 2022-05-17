@@ -16,6 +16,8 @@ export interface IOrder {
   isPaid: boolean;
   payAt?: string;
   transactionId?: string;
+
+  createdAt?: string;
 }
 
 export interface IOrderItem {

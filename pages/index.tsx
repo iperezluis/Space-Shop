@@ -5,6 +5,8 @@ import { ShopLayout } from "../components/layouts";
 import { ProductList } from "../components/products";
 import { useProducts } from "../hooks";
 import { Loading } from "../components/ui/Loading";
+import { spaceApi } from "../api";
+import { useEffect } from "react";
 
 const HomePage: NextPage = () => {
   const { products, isLoading, isError } = useProducts("/products");
