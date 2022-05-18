@@ -76,14 +76,14 @@ export const SideBar = () => {
           </ListItem>
           {isLoggedIn && user?.role === "client" ? (
             <>
-              <ListItem button onCLick={() => {}}>
+              <ListItem button onClick={() => {}}>
                 <ListItemIcon>
                   <AccountCircleOutlined />
                 </ListItemIcon>
                 <ListItemText primary={"Perfil"} />
               </ListItem>
 
-              <ListItem button onCLick={() => navigateTo("/orders/history")}>
+              <ListItem button onClick={() => navigateTo("/orders/history")}>
                 <ListItemIcon>
                   <ConfirmationNumberOutlined />
                 </ListItemIcon>
