@@ -76,7 +76,7 @@ export const SideBar = () => {
           </ListItem>
           {isLoggedIn && user?.role === "client" ? (
             <>
-              <ListItem button onClick={() => {}}>
+              <ListItem button onClick={() => navigateTo("/profile")}>
                 <ListItemIcon>
                   <AccountCircleOutlined />
                 </ListItemIcon>
