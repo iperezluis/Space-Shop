@@ -39,7 +39,6 @@ export const oAuthToDB = async (oAuthEmail: string, oAuthName: string) => {
     name: oAuthName,
     password: "@",
     role: "client",
-    
   });
   await newUser.save();
   await db.disconnect();
@@ -51,4 +50,16 @@ export const oAuthToDB = async (oAuthEmail: string, oAuthName: string) => {
     email,
     role,
   };
+};
+
+export const getUserById = async (id: string) => {
+  await db.connect();
+  const user = await User.findById(id).lean();
+  if (!user) {
+    await db.disconnect();
+    return null;
+  }
+  await db.disconnect();
+
+  return JSON.parse(JSON.stringify(user));
 };
