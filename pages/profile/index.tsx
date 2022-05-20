@@ -88,6 +88,7 @@ const ProfilePage: FC<Props> = ({ user }) => {
           sm={6}
           md={6}
           lg={4}
+          xl={4}
           sx={{ height: { xs: "", sm: 200 } }}
         >
           <Card>
@@ -135,7 +136,7 @@ const ProfilePage: FC<Props> = ({ user }) => {
             </CardActions>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={6} lg={8}>
+        <Grid item xs={12} sm={6} md={6} lg={8} xl={8}>
           <Box display="flex" flexDirection="column" sx={{ mt: 1 }}>
             {/* titles */}
             <Typography variant="h1" component="h1">
