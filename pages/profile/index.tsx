@@ -105,7 +105,8 @@ const ProfilePage: FC<Props> = ({ user }) => {
               sx={{
                 borderRadius: "100%",
                 height: { xs: 330, sm: 340, md: 390 },
-                width: { xs: "100%", sm: "100%" },
+                width: { xs: "100%", sm: "100%", md: "80%" },
+                marginLeft: { md: 5 },
               }}
               alt={user.image}
             />
