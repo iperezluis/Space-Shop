@@ -19,7 +19,7 @@ const Custom404 = () => {
           404 |
         </Typography>
         <Typography fontSize={20}>
-          No encontramos ninguna pagina aqui...
+          No encontramos ninguna pagina aqui
         </Typography>
       </Box>
     </ShopLayout>

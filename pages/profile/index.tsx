@@ -49,16 +49,14 @@ const ProfilePage: FC<Props> = ({ user }) => {
     }
   };
   const saveChanges = async () => {
-    if (image.length === 0) {
+    if (image.length === 0 || !image) {
       return;
     }
     setIsSaving(true);
-
     try {
-      const { data } = await spaceApi({
-        url: "/user/update",
-        method: "POST",
-        data: { image: image, id: user._id },
+      const { data } = await spaceApi.put("/user/update", {
+        image,
+        id: user._id,
       });
       setIsSaving(false);
       console.log({ data });

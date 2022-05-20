@@ -65,6 +65,7 @@ const registerUser = async (
       name: name.toLowerCase(),
       email: email.toLowerCase(),
       password: bcrypt.hashSync(password),
+      image: "",
       role: "client",
     });
     await user.save({ validateBeforeSave: true });

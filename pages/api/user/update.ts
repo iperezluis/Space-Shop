@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { db } from "../../../database";
-import { IUser } from "../../../interfaces";
 import { User } from "../../../models";
 import { isValidObjectId } from "mongoose";
+import { IUser } from "../../../interfaces/user";
 
 type Data =
   | {
@@ -15,7 +15,7 @@ export default function handler(
   res: NextApiResponse<Data>
 ) {
   switch (req.method) {
-    case "POST":
+    case "PUT":
       return updateImageUser(req, res);
 
     default:
@@ -30,6 +30,7 @@ const updateImageUser = async (
 ) => {
   const { image = "", id = "" } = req.body;
   if (!isValidObjectId(id)) {
+    await db.disconnect();
     return res.status(400).json({
       message: "No es un id mongo valido",
     });
@@ -37,13 +38,15 @@ const updateImageUser = async (
   await db.connect();
   const user = await User.findById(id);
   if (!user) {
+    await db.disconnect();
     return res.status(400).json({
       message: "No existe un usuario con ese id",
     });
   }
-  (await user.image) != image;
+  user.image = image;
   await user.save();
   await db.disconnect();
 
+  console.log(user);
   res.status(200).json(user);
 };
