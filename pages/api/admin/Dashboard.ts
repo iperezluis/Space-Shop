@@ -34,11 +34,11 @@ const getInventory = async (
   res: NextApiResponse<Data>
 ) => {
   //first we should to block our Api in production
-  if (process.env.NODE_ENV === "production") {
-    return res.status(401).json({
-      message: "Access denied, you don't have permission to this endpoint",
-    });
-  }
+  // if (process.env.NODE_ENV === "production") {
+  //   return res.status(401).json({
+  //     message: "Access denied, you don't have permission to this endpoint",
+  //   });
+  // }
   //otra manera de resolverlo pero no muyy eficiente
   // await db.connect();
   // const numberOfOrders = await Order.count();

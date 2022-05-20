@@ -201,7 +201,7 @@ export const SideBar = () => {
                 </ListItemIcon>
                 <ListItemText primary={"Productos"} />
               </ListItem>
-              <ListItem button onClick={() => navigateTo("admin/orders")}>
+              <ListItem button onClick={() => navigateTo("/admin/orders")}>
                 <ListItemIcon>
                   <ConfirmationNumberOutlined />
                 </ListItemIcon>
