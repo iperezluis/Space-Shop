@@ -13,7 +13,7 @@ docker-compose up -d
   mongodb://localhost:27017/spacedb
   ```
 
-# Reconstruir los modulso de node e iniciar next
+# Reconstruir los modulos de node e iniciar next
 
 ```
 yarn install
