@@ -1,5 +1,7 @@
 # Next.js Space Shop App
 
+It's necessary consider the following instructions step by step 👋
+
 Para correr localmente se necesita la base de datos
 
 ```
