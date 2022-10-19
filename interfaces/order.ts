@@ -40,3 +40,12 @@ export interface ShippingAddress {
   zip: string;
   phone: string;
 }
+export interface ISession {
+  user: {
+    _id: string;
+    name: string;
+    email: string;
+    image: string;
+    role: string;
+  };
+}

@@ -11,6 +11,8 @@ import {
   Divider,
   Link,
   Box,
+  Alert,
+  AlertTitle,
   Button,
   Chip,
   CircularProgress,
@@ -24,7 +26,7 @@ import {
 import { useRouter } from "next/router";
 import { getSession } from "next-auth/react";
 import { dbOrders } from "../../database";
-import { IOrder } from "../../interfaces/order";
+import { IOrder, ISession } from "../../interfaces/order";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { spaceApi } from "../../api";
 
@@ -41,11 +43,13 @@ type OrderResponseBody = {
 
 interface Props {
   order: IOrder;
+  session: ISession;
 }
-const SummaryPage: NextPage<Props> = ({ order }) => {
+const SummaryPage: NextPage<Props> = ({ order, session }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const { shippingAddress, numberOfItems } = order;
+  const { user } = session;
 
   const onOrderCompleted = async (details: OrderResponseBody) => {
     if (details.status !== "COMPLETED") {
@@ -69,6 +73,16 @@ const SummaryPage: NextPage<Props> = ({ order }) => {
       title={`Resumen de la órden ${order._id}`}
       pageDescription={"Resumen de la orden "}
     >
+      {order.isPaid && (
+        <Alert severity="success">
+          <AlertTitle>Compra exitosa</AlertTitle>¡ Tu compra ha sido realizada
+          exitosamente!—{" "}
+          <strong>
+            {`Te enviamos un correo electronico a ${user.email} con el status de la
+            compra!`}
+          </strong>
+        </Alert>
+      )}
       <Typography variant="h1" component="h1">
         Orden: {order._id}
       </Typography>
@@ -214,7 +228,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   }
 
   return {
-    props: { order },
+    props: { order, session },
   };
 };
 export default SummaryPage;

@@ -7,5 +7,5 @@ services:
     volumes:
       - ./mongo:/data/db
 # note:
-# -27017:27017 means that i wants to comunicate the port 27017 of my computer with container port 27017
+# -27017:27017 means that i want to comunicate the port 27017 from my computer with container port 27017
 #  ./mongo:/data/db is where we going to storage the information and this create a binding between the container and this folder

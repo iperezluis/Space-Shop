@@ -28,6 +28,7 @@ const getOrderById = async (
 ) => {
   const { id = "" } = req.query;
   await db.connect();
+
   const order = await Order.findById(id).lean();
   if (!order) {
     return res.status(404).json({ message: "Este id no existe" });

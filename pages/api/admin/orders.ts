@@ -25,7 +25,7 @@ export default function handler(
 }
 const getOrders = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   await db.connect();
-  //Nota: para que el populate no devuelva null al user se deben crear los usuarios desde el formulario para que se creee el new Schema y los datos como email name etc.. intertandolos directamente no surte efecto el populate
+  //Nota: para que el populate no devuelva null al user se deben crear los usuarios desde el formulario para que se creee el new Schema y los datos como email name etc.. insertandolos directamente con el seed no surte efecto el populate
   const orders = await Order.find()
     .populate("user", "name email")
     .sort({ createdAt: "desc" })

@@ -45,7 +45,7 @@ const createOrder = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   }
   const { total, orderItems } = req.body as IOrder;
   await db.connect();
-  //we checking in database all the ids from array orderItem that coming from frontend and return a array
+  //we checking on database all the ids from array orderItem that coming from frontend and return a array
   //$in singinifica que va buscar dentro de ese arreglo todos los id a ver si existen y nos va devolver todos los ids e informacion  de ese arreglo
   const productIds = orderItems.map((p) => p._id);
   const dbProducts = await Product.find({ _id: { $in: productIds } });
