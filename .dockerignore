@@ -1,0 +1,9 @@
+
+# next.js
+.next/
+
+#dependences
+node_modules/
+
+.gitignore/
+.git/

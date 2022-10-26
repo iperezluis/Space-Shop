@@ -450,7 +450,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   let product: IProduct | null;
   if (slug === "new") {
-    //we going to create an product by default
+    //we're going to create a product by default
     const tempProduct = JSON.parse(JSON.stringify(new Product()));
     delete tempProduct._id;
     tempProduct.images = ["img1.jpg", "img2.jpg"];

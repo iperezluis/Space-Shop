@@ -1,6 +1,6 @@
 services:
   spacedb:
-    image: mongo:5.0.0
+    image: mongo:5
     container_name: spaceshop-database
     ports:
       - 27017:27017

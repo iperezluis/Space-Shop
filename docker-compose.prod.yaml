@@ -1,0 +1,48 @@
+version: "3"
+
+services:
+  spaceshopapp:
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: spaceshop-docker
+    container_name: spaceshopapp
+    restart: always # reiniciar el contenedor si se detiene
+    ports:
+      - "${PORT}:${PORT}"
+    # working_dir: /var/www/pokedex
+    environment:
+      HOST_NAME: ${HOST_NAME}
+      MONGO_URL: ${MONGO_URL}
+      SECRET_KEY_JWT: ${SECRET_KEY_JWT}
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+      NEXT_PUBLIC_TAX_RATE: ${NEXT_PUBLIC_TAX_RATE}
+      GITHUB_ID: ${GITHUB_ID}
+      GITHUB_SECRET: ${GITHUB_SECRET}
+      HOST_ZONE: ${HOST_ZONE}
+      SMTP_ID: ${SMTP_ID}
+      SMTP_PASSWORD: ${SMTP_PASSWORD}
+      SPOTIFY_CLIENT_ID: ${SPOTIFY_CLIENT_ID}
+      SPOTIFY_CLIENT_SECRET: ${SPOTIFY_CLIENT_SECRET}
+      NEXT_PUBLIC_PAYPAL_CLIENT_ID: ${NEXT_PUBLIC_PAYPAL_CLIENT_ID}
+      PAYPAL_SECRET_ID: ${PAYPAL_SECRET_ID}
+      PAYPAL_OAUTH_URL: ${PAYPAL_OAUTH_URL}
+      PAYPAL_ORDERS_URL: ${PAYPAL_ORDERS_URL}
+      CLOUDINARY_URL: ${CLOUDINARY_URL}
+      PORT: ${PORT}
+      DEFAULT_LIMIT: ${DEFAULT_LIMIT}
+    # volumes:
+    #   - ./:/var/www/pokedex
+
+  db:
+    image: mongo:5
+    container_name: mongo-space
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGODB_DATABASE: spacedb
+    # volumes:
+    #   - ./mongo:/data/db
