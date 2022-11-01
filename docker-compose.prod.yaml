@@ -11,7 +11,7 @@ services:
     container_name: spaceshopapp
     restart: always # reiniciar el contenedor si se detiene
     ports:
-      - "80:3000"
+      - "3000:3000"
     # working_dir: /var/www/pokedex
     environment:
       HOST_NAME: ${HOST_NAME}
