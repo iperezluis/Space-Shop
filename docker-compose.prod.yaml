@@ -14,9 +14,9 @@ services:
       - "80:3000"
     # working_dir: /var/www/pokedex
     environment:
-      HOST_NAME: ${HOST_NAME}
-      MONGO_URL: ${MONGO_URL}
-      PORT: ${PORT}
+      HOST_NAME: http://0.0.0.0
+      MONGO_URL: mongodb://spaceshop-database:27017/spacedb
+      PORT: 3000
       SECRET_KEY_JWT: ${SECRET_KEY_JWT}
       NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
       NEXT_PUBLIC_TAX_RATE: ${NEXT_PUBLIC_TAX_RATE}
