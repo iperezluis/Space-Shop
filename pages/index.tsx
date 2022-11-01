@@ -20,7 +20,7 @@ const HomePage: NextPage = () => {
         Tienda
       </Typography>
       <Typography variant="h2" sx={{ mb: 1 }}>
-        Todos los productos aqui
+        Todos los productos
       </Typography>
       {/* <Loading /> */}
       {isLoading ? <Loading /> : <ProductList products={products} />}
