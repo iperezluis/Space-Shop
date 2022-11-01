@@ -1,34 +1,34 @@
 # Next.js Space Shop App
 
-It's necessary consider the following instructions step by step 👋
+Necessary consider these following instructions step by step 👋
 
-Para correr localmente se necesita la base de datos
+Running locally we need database, use following command:
 
 ```
 docker-compose up -d
 ```
 
-- El -d significa **detashed**
+- Flag -d means **detashed**
 
 * MongoDB URL local:
   ```
   mongodb://localhost:27017/spacedb
   ```
 
-# Reconstruir los modulos de node e iniciar next
+# Rebuild node nodules and start next:
 
 ```
 yarn install
 yarn dev
 ```
 
-# Configurar las variables de entorno
+# Setting environment variables:
 
-Renombrar el archivo **.env.template** a **.env**
+Rename the field **.env.template** to **.env**
 
-## Llenar la base de datos
+## Fill database with thes command:
 
-Llamar a:
+Request 'POST':
 
 ```
 http://localhost:3000/api/seed
