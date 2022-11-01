@@ -4,7 +4,7 @@ const nextConfig = {
   reactStrictMode: true,
   // time in seconds of no pages generating during static
   // generation before timing out
-  staticPageGenerationTimeout: 500,
+  staticPageGenerationTimeout: 60,
   experimental: {
     esmExternals: false,
   },
