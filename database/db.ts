@@ -36,8 +36,8 @@ export const connect = async () => {
     mongoConnection.isConnected = 1;
     console.log("Conectado a MongoDB:", process.env.MONGO_URL);
   } catch (error: any) {
-    console.log(error);
-    console.log(error.message);
+    console.log("estamos en el error: ", error);
+    // console.log(error.message);
   }
 };
 

@@ -2,7 +2,7 @@
 mongo/
 .env
 .env.dev
-.env.prod
+# .env.prod
 # dependencies
 /node_modules
 /.pnp
