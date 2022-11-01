@@ -38,7 +38,9 @@ COPY --from=builder /app/.next ./.next
 # RUN adduser --disabled-password pokeuser
 # RUN chown -R pokeuser:pokeuser ./pokedex
 # USER pokeuser
+#chequear el contenedor periodicamente
+# HEALTHCHECK  CMD curl --fail http://0.0.0.0:3000 || exit 
 
-# EXPOSE 3000
+EXPOSE 3000
 
 CMD [ "yarn","start" ]
