@@ -14,7 +14,7 @@ const HomePage: NextPage = () => {
   return (
     <ShopLayout
       title={"Space Shop"}
-      pageDescription={"Los mejores productos los encuentras aqui"}
+      pageDescription={"¡Los mejores productos los encuentras aqui!"}
     >
       <Typography variant="h1" component="h1">
         Tienda
