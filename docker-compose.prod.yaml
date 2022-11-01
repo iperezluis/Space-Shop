@@ -1,4 +1,4 @@
-version: "3"
+version: "2.2"
 
 services:
   spaceshopapp:
@@ -16,6 +16,7 @@ services:
     environment:
       HOST_NAME: ${HOST_NAME}
       MONGO_URL: ${MONGO_URL}
+      PORT: ${PORT}
       SECRET_KEY_JWT: ${SECRET_KEY_JWT}
       NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
       NEXT_PUBLIC_TAX_RATE: ${NEXT_PUBLIC_TAX_RATE}
@@ -31,7 +32,6 @@ services:
       PAYPAL_OAUTH_URL: ${PAYPAL_OAUTH_URL}
       PAYPAL_ORDERS_URL: ${PAYPAL_ORDERS_URL}
       CLOUDINARY_URL: ${CLOUDINARY_URL}
-      PORT: ${PORT}
       DEFAULT_LIMIT: ${DEFAULT_LIMIT}
     # volumes:
     #   - ./:/var/www/pokedex
@@ -44,5 +44,5 @@ services:
       - 27017:27017
     environment:
       MONGODB_DATABASE: spacedb
-    # volumes:
-    #   - ./mongo:/data/db
+    volumes:
+      - ./mongo:/data/db
