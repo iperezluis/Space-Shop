@@ -2,8 +2,8 @@ version: "2.2"
 
 services:
   spaceshopapp:
-    depends_on:
-      - db
+    # depends_on:
+    # - db
     build:
       context: .
       dockerfile: Dockerfile
@@ -36,13 +36,13 @@ services:
     # volumes:
     #   - ./:/var/www/pokedex
 
-  db:
-    image: mongo:5
-    container_name: spaceshop-database
-    restart: always
-    ports:
-      - 27017:27017
-    environment:
-      MONGODB_DATABASE: spacedb
-    volumes:
-      - ./mongo:/data/db
+  # db:
+  #   image: mongo:5
+  #   container_name: spaceshop-database
+  #   restart: always
+  #   ports:
+  #     - 27017:27017
+  #   environment:
+  #     MONGODB_DATABASE: spacedb
+  #   volumes:
+  #     - ./mongo:/data/db
