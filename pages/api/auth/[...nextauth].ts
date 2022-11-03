@@ -6,7 +6,7 @@ import Credentials from "next-auth/providers/credentials";
 import { dbUsers } from "../../../database";
 
 export default NextAuth({
-  // Configure one or more authentication providers
+  // Configure one or more authentication provider
   providers: [
     Credentials({
       name: "Custom Login",
@@ -22,6 +22,7 @@ export default NextAuth({
           placeholder: "password",
         },
       },
+
       //if we changes the role of one user to admin since the database then that user should logout and again login because the info of that user is storage in token that coming of NexthAuth
       async authorize(credentials) {
         console.log(credentials);
@@ -41,6 +42,8 @@ export default NextAuth({
     }),
     // ...add twitter provider
   ],
+  secret: process.env.NEXTAUTH_SECRET,
+
   //custom pages
   pages: {
     signIn: "/auth/login",
