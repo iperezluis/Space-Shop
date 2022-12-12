@@ -22,10 +22,10 @@ export default NextAuth({
           placeholder: "password",
         },
       },
-
       //if we changes the role of one user to admin since the database then that user should logout and again login because the info of that user is storage in token that coming of NexthAuth
       async authorize(credentials) {
         console.log(credentials);
+
         return await dbUsers.checkEmailPassword(
           credentials!.email,
           credentials!.password
@@ -40,10 +40,10 @@ export default NextAuth({
       clientId: process.env.SPOTIFY_CLIENT_ID!,
       clientSecret: process.env.SPOTIFY_CLIENT_SECRET!,
     }),
+
     // ...add twitter provider
   ],
   secret: process.env.NEXTAUTH_SECRET,
-
   //custom pages
   pages: {
     signIn: "/auth/login",
