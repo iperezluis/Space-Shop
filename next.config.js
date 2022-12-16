@@ -20,7 +20,7 @@ const nextConfig = {
     NEXT_PUBLIC_TAX_RATE: 0.15,
     DEFAULT_LIMIT: 5,
     GITHUB_ID: "be8044fe723fed45df1c",
-    GITHUB_SECRET: "8d2dfec911e576215c0fb86993670bfe301a3346",
+    GITHUB_SECRET: "b59fa56e4f59a8642be014bdaf22ae56c092dfd9",
     CLOUDINARY_URL:
       "cloudinary://784527415311958:efadsVCcIjvuCGRpMNO6tfBeY2A@servidor-depruebas-backend",
   },
