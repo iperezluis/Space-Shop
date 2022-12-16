@@ -10,6 +10,7 @@ const nextConfig = {
     esmExternals: false,
   },
   env: {
+    HOST_NAME: "https://space-shop.up.railway.app",
     MONGO_URL:
       "mongodb+srv://space_shop:auth9**@backend-cafe.y7fo5.mongodb.net/spacedb",
     PORT: 3000,
@@ -19,6 +20,8 @@ const nextConfig = {
     DEFAULT_LIMIT: 5,
     GITHUB_ID: "be8044fe723fed45df1c",
     GITHUB_SECRET: "8d2dfec911e576215c0fb86993670bfe301a3346",
+    CLOUDINARY_URL:
+      "cloudinary://784527415311958:efadsVCcIjvuCGRpMNO6tfBeY2A@servidor-depruebas-backend",
   },
 };
 
