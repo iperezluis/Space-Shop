@@ -29,7 +29,7 @@ export const connect = async () => {
     await mongoose.disconnect();
   }
   try {
-    await mongoose.connect(process.env.MONGO_URL || "");
+    await mongoose.connect(process.env.MONGO_URL!);
     mongoConnection.isConnected = 1;
     console.log("Conectado a MongoDB:", process.env.MONGO_URL);
   } catch (error: any) {
