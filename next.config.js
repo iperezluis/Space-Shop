@@ -1,3 +1,4 @@
+// const dotenv = require("dotenv");
 /** @type {import('next').NextConfig} 
 // /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -8,6 +9,7 @@ const nextConfig = {
   experimental: {
     esmExternals: false,
   },
+  env: {},
 };
 
 module.exports = nextConfig;

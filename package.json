@@ -16,6 +16,7 @@
     "@mui/x-data-grid": "^5.8.0",
     "@paypal/react-paypal-js": "^7.6.0",
     "axios": "^0.26.1",
+    "babel-plugin-transform-define": "^2.1.0",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.30.0",
     "dotenv": "^16.0.3",
