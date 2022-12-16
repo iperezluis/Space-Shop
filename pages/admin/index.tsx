@@ -30,7 +30,7 @@ const DashBoardPage: NextPage<Props> = () => {
       setRefreshIn((refreshIn) => (refreshIn > 0 ? refreshIn - 1 : 30));
     }, 1000);
     return () => clearInterval(interval);
-  }, []); 
+  }, []);
 
   if (!data && !error) {
     return <></>;
@@ -39,6 +39,7 @@ const DashBoardPage: NextPage<Props> = () => {
     console.log(error);
     return <Typography>Error al cargar la informacion</Typography>;
   }
+  const dataIuser = [];
   const {
     numberOfProducts,
     productsWithNotInventory,
