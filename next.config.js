@@ -11,6 +11,7 @@ const nextConfig = {
   },
   env: {
     HOST_NAME: "https://space-shop.up.railway.app",
+    NEXTAUTH_URL: "https://space-shop.up.railway.app",
     MONGO_URL:
       "mongodb+srv://space_shop:auth9**@backend-cafe.y7fo5.mongodb.net/spacedb",
     PORT: 3000,
