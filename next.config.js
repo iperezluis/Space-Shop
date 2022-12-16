@@ -9,7 +9,10 @@ const nextConfig = {
   experimental: {
     esmExternals: false,
   },
-  env: {},
+  env: {
+    MONGO_URL: `mongodb+svr://${process.env.DB_USER}:${DB_PASS}${DB_HOST}`,
+    PORT: "3000",
+  },
 };
 
 module.exports = nextConfig;
