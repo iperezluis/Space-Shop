@@ -26,7 +26,7 @@ yarn dev
 
 Rename the field **.env.template** to **.env**
 
-## Fill database with thes command:
+## Fill database with this command:
 
 Request 'POST':
 
